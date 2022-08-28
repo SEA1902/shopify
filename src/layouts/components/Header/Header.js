@@ -5,21 +5,15 @@ import images from '~/assets/images';
 import config from '~/config';
 import Search from '../Search/Search';
 import { CartIcon } from '~/components/Icons';
-import { LoginContext } from '~/store';
-import { useContext } from 'react';
 
 const cx = classNames.bind(styles);
 
 function Header() {
-    const [state, dispatch] = useContext(LoginContext);
-    const { isLogin } = state;
-
     const user = JSON.parse(localStorage.getItem('token-info'));
-
     return (
         <header className={cx('wrapper')}>
             <div className={cx('navbar')}>
-                {isLogin ? (
+                {user ? (
                     <div className={cx('idetity-user')}>{user.username}</div>
                 ) : (
                     <div className={cx('navbar-links')}>

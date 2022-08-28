@@ -36,7 +36,7 @@ function Checkout() {
 
     const handleDropdown = () => {
         const nextElement = document.getElementById('list-item');
-        if (nextElement.style.display == 'block') {
+        if (nextElement.style.display === 'block') {
             nextElement.style.display = 'none';
         } else {
             nextElement.style.display = 'block';

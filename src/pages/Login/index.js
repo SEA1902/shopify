@@ -4,13 +4,10 @@ import { Link, useNavigate } from 'react-router-dom';
 import styles from './Login.module.scss';
 import * as userService from '~/services/userService';
 import config from '~/config';
-import { LoginContext, actions } from '~/store';
 
 const cx = classNames.bind(styles);
 
 function Login() {
-    const [state, dispatch] = useContext(LoginContext);
-
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [users, setUsers] = useState('');
@@ -37,7 +34,6 @@ function Login() {
         if (checkUser) {
             navigate(config.routes.home);
             localStorage.setItem('token-info', JSON.stringify(userData));
-            dispatch(actions.setIsLogin(true));
         }
     };
 
